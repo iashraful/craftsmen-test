@@ -10,11 +10,6 @@ operators = {
 }
 
 
-def get_input():
-    expression = input('Enter an expression: ')
-    return expression.strip().split()
-
-
 def rpn_calculator(tokens):
     """
     Calculate the value from the RPN expression
@@ -29,5 +24,7 @@ def rpn_calculator(tokens):
             try:
                 stack.append(eval(token))
             except SyntaxError:
-                errors.append('{0} is invalid expression\nResult generated excluding this token.'.format(token))
+                errors.append('{0} is invalid expression\nResult generated excluding {1}} token.'.format(token, token))
+            except (NameError, IndexError):
+                errors.append('{0} is an invalid expression.'.format(token))
     return stack[0], errors  # There will be always an item or 0 indexed for post fix RPN
