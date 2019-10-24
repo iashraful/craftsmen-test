@@ -27,13 +27,13 @@ def run_rpn_calculator():
 
 if __name__ == '__main__':
     print('''
-        1: Infix to RPN Converter
-        2: RPN Calculator
+        1: RPN Calculator
+        2: Infix to RPN Converter
     ''')
     decision = input()
     if decision == '1':
-        run_infix_to_rpn()
-    elif decision == '2':
         run_rpn_calculator()
+    elif decision == '2':
+        run_infix_to_rpn()
     else:
         print('Please enter a valid choice.')
